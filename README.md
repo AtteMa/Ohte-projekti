@@ -1,5 +1,5 @@
 # OHTE-Projekti
 
-### Tehtävät
+## Tehtävät
 
 #### Viikko 1
