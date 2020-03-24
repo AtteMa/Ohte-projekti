@@ -1,17 +1,17 @@
-** Vaatimusmäärittely
+## Vaatimusmäärittely
 
-*** Sovellus pääpiirteittäin
+### Sovellus pääpiirteittäin
 
 Sovellus on versio tunnetusta Asteroids-pelista. Peliä pelataan nimimerkillä ja eri pelaajien tulokset voi nähdä tuloslistassa.
 
-*** Suunnitellut toiminnallisuudet
+### Suunnitellut toiminnallisuudet
 
-**** Alkunäkymä
+#### Alkunäkymä
 -käyttäjä voi aloittaa pelaamisen kirjoittamalla itselleen nimimerkin
 -käyttäjä voi siirtyä katselemaan tuloslistaa
 
-**** Pelinäkymä
+#### Pelinäkymä
 -käyttäjä voi pelata peliä
 
-**** Tulosnäkymä
+#### Tulosnäkymä
 -käyttäjä voi katsella top10 pelaajien tuloksia listana
