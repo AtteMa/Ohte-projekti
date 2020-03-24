@@ -7,11 +7,11 @@ Sovellus on versio tunnetusta Asteroids-pelista. Peliä pelataan nimimerkillä j
 ### Suunnitellut toiminnallisuudet
 
 #### Alkunäkymä
--käyttäjä voi aloittaa pelaamisen kirjoittamalla itselleen nimimerkin
--käyttäjä voi siirtyä katselemaan tuloslistaa
+- käyttäjä voi aloittaa pelaamisen kirjoittamalla itselleen nimimerkin
+- käyttäjä voi siirtyä katselemaan tuloslistaa
 
 #### Pelinäkymä
--käyttäjä voi pelata peliä
+- käyttäjä voi pelata peliä
 
 #### Tulosnäkymä
--käyttäjä voi katsella top10 pelaajien tuloksia listana
+- käyttäjä voi katsella top10 pelaajien tuloksia listana
