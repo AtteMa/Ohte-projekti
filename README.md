@@ -1,14 +1,9 @@
-# OHTE-Projekti
-
-## Tehtävät
-
-### Viikko 1
-
-[komentorivi.txt](https://github.com/AtteMa/Ohte-projekti/blob/master/laskarit/viikko1/komentorivi.txt)
-
-### Viikko 2
+# Asteroids
+versio Asteroids-pelistä. Pelaajalla on mahdollisuus aloittaa peli nimimerkillä. Sovellusta on mahdollista käyttää useammalla nimimerkillä ja jokaisella nimimerkillä on omat pisteet. Pisteet näkyvät reaaliajassa pelin kuluessa, mutta niitä on myös mahdollista tarkastella erilliseltä pistelistalta.
 
 
 ## Dokumentaatio
 
 [Vaatimusmäärittely](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/maarittelydokumentti.md)
+
+[Tuntikirjanpito](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/tuntikirjanpito.md)
