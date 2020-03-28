@@ -2,7 +2,7 @@
 
 
 
-| päivä | aika | mitä tein  |
+| päivä   | aika   | mitä tein  |
 
 | :----:|:-----| :-----|
 
