@@ -1,4 +1,4 @@
-package asteroids;
+package asteroidsMain;
 
 import ui.AsteroidsUi;
 
