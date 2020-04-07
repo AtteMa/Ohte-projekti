@@ -7,3 +7,5 @@ versio Asteroids-pelistä. Pelaajalla on mahdollisuus aloittaa peli nimimerkill�
 [Vaatimusmäärittely](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/maarittelydokumentti.md)
 
 [Tuntikirjanpito](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/tuntikirjanpito.md)
+
+[Arkkitehtuurikuvaus](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/arkkitehtuuri.md)
