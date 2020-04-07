@@ -4,6 +4,7 @@ package domain;
 
 import ui.AsteroidsUi;
 import javafx.geometry.Point2D;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.shape.Shape;
 
@@ -11,10 +12,12 @@ public abstract class Unit {
     private Polygon unit;
     private Point2D movement;
     
-    public Unit (Polygon polygon, int x, int y) {
+    public Unit(Polygon polygon, int x, int y, Color color) {
         this.unit = polygon;
         this.unit.setTranslateX(x);
         this.unit.setTranslateY(y);
+        
+        polygon.setFill(color);
         
         this.movement = new Point2D(0, 0);
     }
@@ -32,11 +35,11 @@ public abstract class Unit {
     }
     
     public void turnLeft() {
-        this.unit.setRotate(this.unit.getRotate() - 5);
+        this.unit.setRotate(this.unit.getRotate() - 3);
     }
     
     public void turnRight() {
-        this.unit.setRotate(this.unit.getRotate() + 5);
+        this.unit.setRotate(this.unit.getRotate() + 3);
     }
     
     public void move() {
@@ -64,8 +67,18 @@ public abstract class Unit {
         double changeX = Math.cos(Math.toRadians(this.unit.getRotate()));
         double changeY = Math.sin(Math.toRadians(this.unit.getRotate()));
         
-        changeX *= 0.02;
-        changeY *= 0.02;
+        changeX *= 0.01;
+        changeY *= 0.01;
+        
+        this.movement = this.movement.add(changeX, changeY);
+    }
+    
+    public void decelerate() {
+        double changeX = Math.cos(Math.toRadians(this.unit.getRotate()));
+        double changeY = Math.sin(Math.toRadians(this.unit.getRotate()));
+        
+        changeX *= -0.01;
+        changeY *= -0.01;
         
         this.movement = this.movement.add(changeX, changeY);
     }
