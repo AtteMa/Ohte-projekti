@@ -11,7 +11,9 @@ Sovellus on versio tunnetusta Asteroids-pelista. Peliä pelataan nimimerkillä j
 - käyttäjä voi siirtyä katselemaan tuloslistaa
 
 ### Pelinäkymä
-- käyttäjä voi pelata peliä
+- käyttäjä voi ohjata alusta (tehty)
+- käyttäjä voi ampua aluksella
+- käyttäjän ammus voi tuhota asteroidin
 
 ### Tulosnäkymä
 - käyttäjä voi katsella top10 pelaajien tuloksia listana
