@@ -13,6 +13,9 @@ import javafx.stage.Stage;
 
 public class AsteroidsUi extends Application {
     
+    public static int WIDTH = 600;
+    public static int HEIGHT = 400;
+    
     public void start(Stage stage) {
         Button game = new Button("Start game");
         Button score = new Button("Scoreboard");
