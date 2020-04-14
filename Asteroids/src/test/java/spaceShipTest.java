@@ -1,5 +1,8 @@
+import domain.Ammunition;
+import domain.Asteroid;
 import domain.Spaceship;
 import javafx.geometry.Point2D;
+import javafx.scene.shape.Shape;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -37,7 +40,15 @@ public class spaceShipTest {
         Point2D movement = new Point2D(0, 0);
         ship.move();
         assertEquals(movement, ship.getMovement());
-        
     }
     
+    @Test
+    public void asteroidAmmoCollidingWorks() {
+        Ammunition ammo = new Ammunition(100, 100);
+        Asteroid asteroid = new Asteroid(100, 100);
+        
+        ammo.collide(asteroid);
+        assertEquals(true, ammo.collide(asteroid));
+        
+    }    
 }
