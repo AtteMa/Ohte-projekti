@@ -35,11 +35,11 @@ public abstract class Unit {
     }
     
     public void turnLeft() {
-        this.unit.setRotate(this.unit.getRotate() - 3);
+        this.unit.setRotate(this.unit.getRotate() - 1);
     }
     
     public void turnRight() {
-        this.unit.setRotate(this.unit.getRotate() + 3);
+        this.unit.setRotate(this.unit.getRotate() + 1);
     }
     
     public void move() {
@@ -67,8 +67,8 @@ public abstract class Unit {
         double changeX = Math.cos(Math.toRadians(this.unit.getRotate()));
         double changeY = Math.sin(Math.toRadians(this.unit.getRotate()));
         
-        changeX *= 0.01;
-        changeY *= 0.01;
+        changeX *= 0.001;
+        changeY *= 0.001;
         
         this.movement = this.movement.add(changeX, changeY);
     }
@@ -77,8 +77,8 @@ public abstract class Unit {
         double changeX = Math.cos(Math.toRadians(this.unit.getRotate()));
         double changeY = Math.sin(Math.toRadians(this.unit.getRotate()));
         
-        changeX *= -0.01;
-        changeY *= -0.01;
+        changeX *= -0.001;
+        changeY *= -0.001;
         
         this.movement = this.movement.add(changeX, changeY);
     }
