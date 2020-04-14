@@ -9,3 +9,30 @@ versio Asteroids-pelist채. Pelaajalla on mahdollisuus aloittaa peli nimimerkill�
 [Tuntikirjanpito](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/tuntikirjanpito.md)
 
 [Arkkitehtuurikuvaus](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/arkkitehtuuri.md)
+
+## Komentorivitoiminnot
+
+### Testaus
+
+Testit suoritetaan komennolla
+```mvn test```
+
+Testikattavuusraprtti luodaan komennolla
+```mvn jacoco:report```
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
+
+### Suoritettavan jarin generointi
+
+Komento
+```mvn package```
+
+ohjelma suoritetaan komennolla
+```java -jar target/Asteroids-1.0-SNAPSHOT.jar```
+
+### Checkstyle
+
+Tiedoston checkstyle.xml m채채rittelem채t tarkistukset suoritetaan komennolla
+```mvn jxr:jxr checkstyle:checkstyle```
+
+Mahdolliset virheilmoitukset selvi채v채t avaamalla selaimella tiedosto _target/site/checkstyle.html_
+
