@@ -1,9 +1,15 @@
 package ui;
 
+import domain.Ammunition;
+import domain.Asteroid;
 import domain.Unit;
 import domain.Spaceship;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Random;
+import java.util.stream.Collectors;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -54,9 +60,17 @@ public class AsteroidsUi extends Application {
         gamePanel.setPrefSize(600, 400);
         gamePanel.setBackground(new Background(new BackgroundFill(Color.BLACK, CornerRadii.EMPTY, Insets.EMPTY)));
         
-        Spaceship ship = new Spaceship(150, 100);
+        Spaceship ship = new Spaceship(WIDTH/2, HEIGHT/2);
+        List<Ammunition> ammo = new ArrayList<>();
+        List<Asteroid> asteroids = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            Random rnd = new Random();
+            Asteroid asteroid = new Asteroid(rnd.nextInt(100), rnd.nextInt(100));
+            asteroids.add(asteroid);
+        }
         
         gamePanel.getChildren().add(ship.getUnit());
+        asteroids.forEach(asteroid -> gamePanel.getChildren().add(asteroid.getUnit()));
         
         Scene startScene = new Scene(startPanel);
         Scene gameScene = new Scene(gamePanel);
@@ -108,7 +122,58 @@ public class AsteroidsUi extends Application {
                     ship.decelerate();
                 }
                 
+                if (pressedButtons.getOrDefault(KeyCode.SPACE, false) && ammo.size() < 3) {
+                    Ammunition ammunition = new Ammunition((int) ship.getUnit().getTranslateX(),
+                            (int) ship.getUnit().getTranslateY());
+                    ammunition.getUnit().setRotate(ship.getUnit().getRotate());
+                    ammo.add(ammunition);
+                    
+                    ammunition.accelerate();
+                    ammunition.setMovement(ammunition.getMovement().normalize());
+                    
+                    gamePanel.getChildren().add(ammunition.getUnit());
+                }
+                
                 ship.move();
+                asteroids.forEach(asteroid -> asteroid.move());
+                ammo.forEach(ammunition -> ammunition.move());
+                
+                asteroids.forEach(asteroid -> {
+                    if (ship.collide(asteroid)) {
+                        stop();
+                    }
+                });
+                
+                List<Ammunition> ammoToDelete = ammo.stream().filter(ammunition -> {
+                    List<Asteroid> collided = asteroids.stream()
+                        .filter(asteroid -> asteroid.collide(ammunition))
+                        .collect(Collectors.toList());
+                
+                    if (collided.isEmpty()) {
+                        return false;
+                    }
+
+                    collided.stream().forEach((col ->  {
+                        asteroids.remove(col);
+                        gamePanel.getChildren().remove(col.getUnit());
+                    }));
+
+                    return true;
+                }).collect(Collectors.toList());
+                
+                ammoToDelete.forEach(ammunition -> {
+                    gamePanel.getChildren().remove(ammunition.getUnit());
+                    ammo.remove(ammunition);
+                });
+                
+                if (Math.random() < 0.005) {
+                    Asteroid asteroid = new Asteroid(WIDTH, HEIGHT);
+                    if (!asteroid.collide(ship)) {
+                        asteroids.add(asteroid);
+                        gamePanel.getChildren().add(asteroid.getUnit());
+                    }
+                }
+                
             }
         }.start();
     }
