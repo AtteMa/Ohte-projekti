@@ -12,7 +12,7 @@ import javafx.scene.paint.Color;
  *
  * @author atte
  */
-public class Asteroid extends Unit{
+public class Asteroid extends Unit {
     private double rotation;
 
     public Asteroid(int x, int y) {

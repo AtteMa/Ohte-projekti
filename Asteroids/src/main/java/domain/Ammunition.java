@@ -12,7 +12,7 @@ import javafx.scene.shape.Polygon;
  *
  * @author atte
  */
-public class Ammunition extends Unit{
+public class Ammunition extends Unit {
     public Ammunition(int x, int y) {
         super(new Polygon(2, -2, 2, 2, -2, 2, -2, -2), x, y, Color.YELLOW);
     }
