@@ -7,13 +7,16 @@ Sovellus on versio tunnetusta Asteroids-pelista. Peliä pelataan nimimerkillä j
 ## Suunnitellut toiminnallisuudet
 
 ### Alkunäkymä
-- käyttäjä voi aloittaa pelaamisen kirjoittamalla itselleen nimimerkin
+- käyttäjä voi aloittaa pelaamisen (tehty)
+- käyttäjä voi määritellä itselleen nimimerkin
 - käyttäjä voi siirtyä katselemaan tuloslistaa
 
 ### Pelinäkymä
 - käyttäjä voi ohjata alusta (tehty)
-- käyttäjä voi ampua aluksella
-- käyttäjän ammus voi tuhota asteroidin
+- käyttäjä voi ampua aluksella (tehty)
+- käyttäjän ammus voi tuhota asteroidin (tehty)
+- käyttäjä voi poistua pelistä
 
 ### Tulosnäkymä
 - käyttäjä voi katsella top10 pelaajien tuloksia listana
+- käyttäjä voi katsella kaikkia tuloksia listana
