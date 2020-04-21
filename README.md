@@ -10,6 +10,10 @@ versio Asteroids-pelist√§. Pelaajalla on mahdollisuus aloittaa peli nimimerkill√
 
 [Arkkitehtuurikuvaus](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+## Releaset
+
+[Viikko 5](https://github.com/AtteMa/Ohte-projekti/releases/tag/viikko5)
+
 ## Komentorivitoiminnot
 
 ### Testaus
