@@ -123,15 +123,9 @@ public class AsteroidsUi extends Application {
                 }
                 
                 if (pressedButtons.getOrDefault(KeyCode.SPACE, false) && ammo.size() < 3) {
-                    Ammunition ammunition = new Ammunition((int) ship.getUnit().getTranslateX(),
-                            (int) ship.getUnit().getTranslateY());
-                    ammunition.getUnit().setRotate(ship.getUnit().getRotate());
-                    ammo.add(ammunition);
+                    ship.shoot(ammo, ship);
                     
-                    ammunition.accelerate();
-                    ammunition.setMovement(ammunition.getMovement().normalize());
-                    
-                    gamePanel.getChildren().add(ammunition.getUnit());
+                    gamePanel.getChildren().add(ship.getAmmunition());
                 }
                 
                 ship.move();
