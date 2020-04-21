@@ -1,6 +1,8 @@
 import domain.Ammunition;
 import domain.Asteroid;
 import domain.Spaceship;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.geometry.Point2D;
 import javafx.scene.shape.Shape;
 import org.junit.After;
@@ -28,7 +30,8 @@ public class spaceShipTest {
     
     @Before
     public void setUp() {
-        ship = new Spaceship(1, 1);
+        ship = new Spaceship(100, 100);
+        List<Ammunition> ammo = new ArrayList<>(); 
     }
     
     @After
@@ -47,8 +50,21 @@ public class spaceShipTest {
         Ammunition ammo = new Ammunition(100, 100);
         Asteroid asteroid = new Asteroid(100, 100);
         
-        ammo.collide(asteroid);
         assertEquals(true, ammo.collide(asteroid));
+    }
+    
+    @Test
+    public void shipAsteroidCollidingWorks() {
+        Asteroid asteroid = new Asteroid(100, 100);
         
-    }    
+        assertEquals(true, ship.collide(asteroid));
+    }
+    
+    @Test
+    public void correctAmountOfAmmoIsShot() {
+        List<Ammunition> ammo = new ArrayList<>();
+        ship.shoot(ammo, ship);
+        
+        assertEquals(1, ammo.size());
+    }
 }
