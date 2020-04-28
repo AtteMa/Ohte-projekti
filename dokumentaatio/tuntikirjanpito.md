@@ -19,4 +19,9 @@
 | 19.4. | 1    | arkkitehtuurin suunnittelua
 | 21.4. | 2    | ohjelman refaktorointi/parantelu
 |       | 1    | dokumentaation päivittäminen
-| yht   | 27   |
+| 24.4. | 2    | nimimerkillä pelaaminen
+| 26.4. | 2    | pysyväistallennuksen aloitus
+| 28.4. | 2    | pysyväistallennuksen rakentaminen
+|       | 1    | dokumentaatio
+|       | 1    | testien suunnittelu
+| yht   | 35   |
