@@ -8,7 +8,7 @@ Sovellus on versio tunnetusta Asteroids-pelista. Peliä pelataan nimimerkillä j
 
 ### Alkunäkymä
 - käyttäjä voi aloittaa pelaamisen (tehty)
-- käyttäjä voi määritellä itselleen nimimerkin
+- käyttäjä voi määritellä itselleen nimimerkin (tehty)
 - käyttäjä voi siirtyä katselemaan tuloslistaa
 
 ### Pelinäkymä
