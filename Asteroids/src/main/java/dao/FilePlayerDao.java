@@ -59,7 +59,7 @@ public class FilePlayerDao implements PlayerDao {
     
     @Override
     public List<Player> getAll() {
-        players.sort(Comparator.comparing(Player::getPoints).reversed());
+        players.sort(Comparator.comparing(Player::getHighScore).reversed());
         return players;
     }
     

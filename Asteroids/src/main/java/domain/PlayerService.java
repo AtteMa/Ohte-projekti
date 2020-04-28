@@ -31,6 +31,10 @@ public class PlayerService {
         return true;
     }
     
+    public void updatePlayer(String highScore) {
+        
+    }
+    
     public Player findPlayer(String name) {
         return playerDao.findByName(name);
     }

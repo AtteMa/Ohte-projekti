@@ -125,8 +125,7 @@ public class AsteroidsUi extends Application {
             if (playerService.createPlayer(name.getText(), points.toString(), "0")) {
                 stage.setScene(gameScene);
             } else {
-                Player p = playerService.findPlayer(name.getText());
-                
+                stage.setScene(gameScene);
             }
         });
         score.setOnAction((event) -> {
@@ -174,12 +173,12 @@ public class AsteroidsUi extends Application {
                 
                 asteroids.forEach(asteroid -> {
                     if (ship.collide(asteroid)) {
-                        stop();
-                        
                         Player p = playerService.findPlayer(name.getText());
                         if (Integer.parseInt(p.getHighScore()) < Integer.parseInt(points.toString())) {
                             p.setHighScore(points.toString());
                         }
+                        
+                        stop();
                     }
                 });
                 
