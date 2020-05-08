@@ -1,6 +1,8 @@
 package domain;
 
-/* Avaruusalusta kuvaava luokka */
+/**
+ * Luokka rakentaa Spaceship-monikulmion.
+ */
 
 import java.util.List;
 import javafx.scene.paint.Color;

@@ -8,19 +8,19 @@ package domain;
 public class Player {
     private String name;
     private String points;
-    private String highScore;
+    private int highScore;
     
-    public Player(String name, String points, String highScore) {
+    public Player(String name, String points, int highScore) {
         this.name = name;
         this.points = points;
         this.highScore = highScore;
     }
 
-    public String getHighScore() {
+    public int getHighScore() {
         return highScore;
     }
 
-    public void setHighScore(String highScore) {
+    public void setHighScore(int highScore) {
         this.highScore = highScore;
     }
 

@@ -9,6 +9,8 @@ import domain.Unit;
 import domain.Spaceship;
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -18,17 +20,20 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -42,6 +47,7 @@ public class AsteroidsUi extends Application {
     public static int HEIGHT = 400;
     
     private PlayerService playerService;
+    private AnimationTimer loop;
     
     @Override
     public void init() throws Exception {
@@ -62,8 +68,9 @@ public class AsteroidsUi extends Application {
         Button score = new Button("Scoreboard");
         TextField name = new TextField();
         Button back = new Button("back");
-        Button back2 = new Button("back");
         Label startGameMessage = new Label("");
+        Button stop = new Button("Quit game");
+        List<Player> players = playerService.listAll();
         
         VBox startBox = new VBox();
         startBox.setAlignment(Pos.CENTER);
@@ -71,8 +78,22 @@ public class AsteroidsUi extends Application {
         startBox.getChildren().addAll(startGameMessage, name, game, score);
         
         VBox scoreBox = new VBox();
+        HBox top = new HBox();
+        top.setPadding(new Insets(30, 0, 20, 0));
+        top.setAlignment(Pos.TOP_CENTER);
+        top.getChildren().add(new Text("TOP 10 LEADERBOARD"));
         scoreBox.setAlignment(Pos.CENTER);
-        scoreBox.getChildren().addAll(new Text("Here will be a scoreboard"), back2);
+        HBox backbox = new HBox();
+        backbox.setAlignment(Pos.BOTTOM_CENTER);
+        backbox.setPadding(new Insets(10, 0, 30, 0));
+        backbox.getChildren().add(back);
+        
+        List<Player> sortedPlayers = players.stream()
+                .sorted(Comparator.comparing(Player::getHighScore).reversed())
+                .limit(10)
+                .collect(Collectors.toList());
+        sortedPlayers.forEach(player -> scoreBox.getChildren()
+                .add(new Text(player.getName() + ": " + player.getHighScore() + "pts")));
         
         BorderPane startPanel = new BorderPane();
         startPanel.setPrefSize(600, 400);
@@ -81,6 +102,8 @@ public class AsteroidsUi extends Application {
         BorderPane scorePanel = new BorderPane();
         scorePanel.setPrefSize(600, 400);
         scorePanel.setCenter(scoreBox);
+        scorePanel.setTop(top);
+        scorePanel.setBottom(backbox);
         
         Pane gamePanel = new Pane();
         gamePanel.setPrefSize(600, 400);
@@ -122,26 +145,28 @@ public class AsteroidsUi extends Application {
         game.setOnAction((event) -> {
             text.setText(name.getText() + "\nPoints: 0");
             
-            if (playerService.createPlayer(name.getText(), points.toString(), "0")) {
+            if (playerService.createPlayer(name.getText(), Integer.toString(points.get()), 0)) {
                 stage.setScene(gameScene);
+                loop.start();
             } else {
                 stage.setScene(gameScene);
+                loop.start();
             }
         });
         score.setOnAction((event) -> {
             stage.setScene(scoreScene);
         });
-        back.setOnAction((event) -> {
-            stage.setScene(startScene);
+        stop.setOnAction((event) -> {
+            start(stage);
         });
-        back2.setOnAction((event) -> {
+        back.setOnAction((event) -> {
             stage.setScene(startScene);
         });
         
         stage.setScene(startScene);
         stage.show();
         
-        new AnimationTimer() {
+        loop = new AnimationTimer() {
             
             @Override
             public void handle(long present) {
@@ -174,11 +199,11 @@ public class AsteroidsUi extends Application {
                 asteroids.forEach(asteroid -> {
                     if (ship.collide(asteroid)) {
                         Player p = playerService.findPlayer(name.getText());
-                        if (Integer.parseInt(p.getHighScore()) < Integer.parseInt(points.toString())) {
-                            p.setHighScore(points.toString());
+                        if (p.getHighScore() < points.get()) {
+                            playerService.updatePlayer(p, points.get());
                         }
-                        
                         stop();
+                        gamePanel.getChildren().add(stop);
                     }
                 });
                 
@@ -214,7 +239,7 @@ public class AsteroidsUi extends Application {
                 }
                 
             }
-        }.start();
+        };
     }
     
     public static void main(String[] args) {

@@ -1,6 +1,8 @@
 package domain;
 
-/* Pelin liikkuvien osien yliluokka */
+/**
+ * Pelin liikkuvien osien yliluokka.
+ */
 
 import ui.AsteroidsUi;
 import javafx.geometry.Point2D;
@@ -67,8 +69,8 @@ public abstract class Unit {
         double changeX = Math.cos(Math.toRadians(this.unit.getRotate()));
         double changeY = Math.sin(Math.toRadians(this.unit.getRotate()));
         
-        changeX *= 0.005;
-        changeY *= 0.005;
+        changeX *= 0.002;
+        changeY *= 0.002;
         
         this.movement = this.movement.add(changeX, changeY);
     }

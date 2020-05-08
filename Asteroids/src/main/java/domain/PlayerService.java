@@ -1,16 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package domain;
 
 import dao.PlayerDao;
+import java.util.List;
 
 /**
- *
- * @author atte
+ * Pelaajan käsittelyä helpottava service luokka.
  */
+
 public class PlayerService {
     private PlayerDao playerDao;
     
@@ -18,11 +14,11 @@ public class PlayerService {
         this.playerDao = playerDao;
     }
     
-    public boolean createPlayer(String name, String points, String highScore) {
+    public boolean createPlayer(String name, String points, int highscore) {
         if (playerDao.findByName(name) != null) {
             return false;
         }
-        Player player = new Player(name, points, highScore);
+        Player player = new Player(name, points, highscore);
         try {
             playerDao.create(player);
         } catch (Exception e) {
@@ -31,8 +27,17 @@ public class PlayerService {
         return true;
     }
     
-    public void updatePlayer(String highScore) {
-        
+    public List<Player> listAll() {
+        return playerDao.getAll();
+    }
+    
+    public void updatePlayer(Player player, int highscore) {
+        Player p = playerDao.findByName(player.getName());
+        try {
+            playerDao.update(p, highscore);
+        } catch (Exception e) {
+            
+        }
     }
     
     public Player findPlayer(String name) {

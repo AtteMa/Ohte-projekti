@@ -4,9 +4,12 @@ import domain.Player;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+
+/**
+ * Pelaajan pysyväistallennuksen hoitava luokka.
+ */
 
 public class FilePlayerDao implements PlayerDao {
     private List<Player> players;
@@ -20,7 +23,7 @@ public class FilePlayerDao implements PlayerDao {
             Scanner reader = new Scanner(new File(file));
             while (reader.hasNextLine()) {
                 String[] parts = reader.nextLine().split(" ");
-                Player p = new Player(parts[0], parts[1], parts[2]);
+                Player p = new Player(parts[0], parts[1], Integer.parseInt(parts[2]));
                 players.add(p);
             }
         } catch (Exception e) {
@@ -51,6 +54,13 @@ public class FilePlayerDao implements PlayerDao {
                 .orElse(null);
     }
     
+    @Override
+    public Player update(Player player, int highscore) throws Exception {
+        player.setHighScore(highscore);
+        save();
+        return player;
+    } 
+    
     public Player create(Player player) throws Exception {
         players.add(player);
         save();
@@ -59,7 +69,6 @@ public class FilePlayerDao implements PlayerDao {
     
     @Override
     public List<Player> getAll() {
-        players.sort(Comparator.comparing(Player::getHighScore).reversed());
         return players;
     }
     
