@@ -55,4 +55,8 @@ pelaaja1 0 0
 
 ensin pelaajan nimimerkki, sitten pelin aikaiset pisteet ja lopuksi ennätyspisteet. sarakkeet erotellaan välilyönnillä.
 
+## Sovelluksen heikkouksia
 
+### Käyttöliittymä
+
+Käyttöliittymän rakentava koodi on tällä hetkellä toteutettu kokonaan luokan _AsteroidsUi_ metodissa _start_. Sovelluksen eri näkymät olisivat voitu toteuttaa omina metodeinaan. Samoin pelin animoimisesta huolehtiva _AnimationTimer_-olio olisi voinut olla eriytettynä omaan metodiin, tai jopa omaan luokkaansa.
