@@ -4,7 +4,6 @@ import domain.Spaceship;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.geometry.Point2D;
-import javafx.scene.shape.Shape;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -13,11 +12,11 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 
-public class spaceShipTest {
+public class SpaceshipTest {
     
     Spaceship ship;
     
-    public spaceShipTest() {
+    public SpaceshipTest() {
     }
     
     @BeforeClass
