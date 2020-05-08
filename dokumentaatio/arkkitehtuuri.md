@@ -6,14 +6,14 @@ sovellusta kuvaava luokkakaavio.
 
 Sovelluksen käyttöliittymässä on kolme näkymää:
 
--alkuvalikko
--pelinäkymä
--pistelista
+- alkuvalikko
+- pelinäkymä
+- pistelista
 
 Kaikki ovat omia Scene-olioita ja vain yksi näkymä on aina kerrallaan stagen käytössä.
 Käyttöliittymän ohjelmakoodi löytyy luokasta Asteroids.ui.AsteroidsUi.
 
-Sovelluslogiikka on eriytetty käyttöliittymästä. Käyttöliittymä kutsuu playerService-olion metodeja sovelluslogiikan toteuttamiseksi.
+Sovelluslogiikka on eriytetty käyttöliittymästä. Käyttöliittymä kutsuu luokkien Ammunition, Asteroid, Spaceship, Player ja PlayerService metodeja sovelluslogiikan toteuttamiseksi.
 
 ## Sovelluslogiikka
 
@@ -34,3 +34,25 @@ Sovelluslogiikan muodostavat pääasiassa luokat Unit, PlayerService ja PolygonG
 [PolygonGenerator](https://github.com/AtteMa/Ohte-projekti/blob/master/Asteroids/src/main/java/domain/PolygonGenerator.java) hoitaa asteroidien muodon satunnaisuuden, ja se tarjoaa yhden metodin:
 
 - Polygon create() luo satunnaisen kokoisen ja muotoisen monikulmion
+
+Luokkaan Unit liittyvät aliluokat [Ammunition](https://github.com/AtteMa/Ohte-projekti/blob/master/Asteroids/src/main/java/domain/Ammunition.java), [Asteroid](https://github.com/AtteMa/Ohte-projekti/blob/master/Asteroids/src/main/java/domain/Asteroid.java) ja [Spaceship](https://github.com/AtteMa/Ohte-projekti/blob/master/Asteroids/src/main/java/domain/Spaceship.java) rakentavat omat Unit-olionsa.
+
+## Tiedon pysyväistallennus
+
+Pakkauksen _Asteroids.dao_ luokka _FilePlayerDao_ hoitaa pelaajan tietojen tallentamisen tiedostoon.
+
+Luokka on eristetty rajapinnan _PlayerDao_ taakse. Lisäksi luokan _PlayerService_ ansiosta luokkaa _FilePlayerDao_ ei käytetä suoraan.
+
+### Tiedosto
+
+Sovellus tallentaa pelaajan nimen, pisteet ja ennätyspisteet tiedostoon _playerFile.txt_. Tiedoston nimi on määritelty konfiguraatiotiedostossa [config.properties](https://github.com/AtteMa/Ohte-projekti/blob/master/Asteroids/config.properties).
+
+Tiedot tallennetaan formaatissa
+
+```
+pelaaja1 0 0
+```
+
+ensin pelaajan nimimerkki, sitten pelin aikaiset pisteet ja lopuksi ennätyspisteet. sarakkeet erotellaan välilyönnillä.
+
+
