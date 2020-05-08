@@ -48,6 +48,16 @@ ohjelma suoritetaan komennolla
 java -jar target/Asteroids-1.0-SNAPSHOT.jar
 ```
 
+### JavaDoc
+
+JavaDoc generoidaan komennolla
+
+```
+mvn javadoc:javadoc
+```
+
+JavaDocia voi tarkastella avaamalla selaimella tiedosto _target/site/apidocs/index.html_
+
 ### Checkstyle
 
 Tiedoston checkstyle.xml määrittelemät tarkistukset suoritetaan komennolla

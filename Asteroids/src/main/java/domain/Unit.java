@@ -14,6 +14,14 @@ public abstract class Unit {
     private Polygon unit;
     private Point2D movement;
     
+    /**
+     * Konstruktori Unit-oliolle
+     * 
+     * @param polygon Käyttäjän antama Polygon-olio
+     * @param x Käyttäjän antama x-koordinaatti kokonaislukuna
+     * @param y Käyttäjän antama y-koordinaatti kokonaislukuna
+     * @param color käyttäjän antama Color-olio
+     */
     public Unit(Polygon polygon, int x, int y, Color color) {
         this.unit = polygon;
         this.unit.setTranslateX(x);
@@ -44,6 +52,9 @@ public abstract class Unit {
         this.unit.setRotate(this.unit.getRotate() + 1);
     }
     
+    /**
+     * Unit-olion liikkumisen suorittava metodi
+     */
     public void move() {
         this.unit.setTranslateX(this.unit.getTranslateX() + this.movement.getX());
         this.unit.setTranslateY(this.unit.getTranslateY() + this.movement.getY());
@@ -65,6 +76,9 @@ public abstract class Unit {
         }
     }
     
+    /**
+     * Unit-olion kiihdytyksen suorittava metodi
+     */
     public void accelerate() {
         double changeX = Math.cos(Math.toRadians(this.unit.getRotate()));
         double changeY = Math.sin(Math.toRadians(this.unit.getRotate()));
@@ -75,6 +89,9 @@ public abstract class Unit {
         this.movement = this.movement.add(changeX, changeY);
     }
     
+    /**
+     * Unit-olion peruuttavan kiihdytyksen suorittava metodi
+     */
     public void decelerate() {
         double changeX = Math.cos(Math.toRadians(this.unit.getRotate()));
         double changeY = Math.sin(Math.toRadians(this.unit.getRotate()));
@@ -85,6 +102,12 @@ public abstract class Unit {
         this.movement = this.movement.add(changeX, changeY);
     }
     
+    /**
+     * 
+     * @param other Käyttäjän antama Unit-olio
+     * @return true jos käyttäjän parametrina annettu Unit-olio ja vertailtava Unit-olio
+     * piirtyvät päällekkäin, muuten false
+     */
     public boolean collide(Unit other) {
         Shape collideZone = Shape.intersect(this.unit, other.getUnit());
         return collideZone.getBoundsInLocal().getWidth() != -1;

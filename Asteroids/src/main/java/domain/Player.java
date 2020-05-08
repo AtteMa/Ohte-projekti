@@ -10,6 +10,12 @@ public class Player {
     private String points;
     private int highScore;
     
+    /**
+     * Kostruktori Player-oliolle
+     * @param name Käyttäjän antama merkkijono
+     * @param points Käyttäjän antama merkkijono
+     * @param highScore Käyttäjän antama kokonaisluku
+     */
     public Player(String name, String points, int highScore) {
         this.name = name;
         this.points = points;

@@ -8,6 +8,11 @@ import javafx.scene.shape.Polygon;
  */
 
 public class PolygonGenerator {
+    /**
+     * Metodi luo satunnaisen muotoisen ja kokoisen monikulmion.
+     * 
+     * @return Satunnaisen muotoinen ja kokoinen Polygon-olio
+     */
     public Polygon create() {
         Random rnd = new Random();
         
