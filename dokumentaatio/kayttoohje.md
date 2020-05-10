@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa viimeisimmän releasen tiedostot 
+Lataa viimeisimmän [releasen](https://github.com/AtteMa/Ohte-projekti/releases/tag/loppupalautus) tiedostot _asteroids.jar_, _config.properties_ ja _playerFile.txt_
 
 ## Konfigurointi
 
