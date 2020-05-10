@@ -16,6 +16,8 @@ versio Asteroids-pelist√§. Pelaajalla on mahdollisuus aloittaa peli nimimerkill√
 
 [Viikko 5](https://github.com/AtteMa/Ohte-projekti/releases/tag/Viikko5)
 
+[Loppupalautus](https://github.com/AtteMa/Ohte-projekti/releases/tag/loppupalautus)
+
 ## Komentorivitoiminnot
 
 ### Testaus
