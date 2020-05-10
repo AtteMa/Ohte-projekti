@@ -1,4 +1,4 @@
-![alt text](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/kuvat/luokkakaavio.png)
+![alt text](https://github.com/AtteMa/Ohte-projekti/blob/master/dokumentaatio/kuvat/ohtekaavio.png)
 
 sovellusta kuvaava luokkakaavio.
 
