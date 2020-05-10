@@ -11,7 +11,8 @@ public class Asteroid extends Unit {
     private double rotation;
     
     /**
-     * Konstruktori Asteroid-oliolle
+     * Konstruktori Asteroid-oliolle. Konstruktorissa kutsutaan PolygonGenerator-
+     * olion create() metodia, jotta luoduissa Asteroid-olioissa olisi vaihtuvuutta.
      * @param x Käyttäjän antama x-koordinaatti kokonaislukuna
      * @param y Käyttäjän antama y-koordinaatti kokonaislukuna
      */
