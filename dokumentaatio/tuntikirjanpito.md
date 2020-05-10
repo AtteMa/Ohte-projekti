@@ -24,4 +24,14 @@
 | 28.4. | 2    | pysyväistallennuksen rakentaminen
 |       | 1    | dokumentaatio
 |       | 1    | testien suunnittelu
-| yht   | 35   |
+| 30.4. | 3    | testaus
+| 2.5.  | 3    | pysyväistallennuksen rakentaminen
+| 3.5.  | 1    | testaus
+|       | 1    | dokumentaation päivittäminen
+| 6.5.  | 3    | dokumentaation päivittäminen
+| 8.5.  | 2    | ohjelman parantelua
+|       | 1    | testaus
+|       | 1    | dokumentaation päivittäminen
+| 10.5. | 2    | ohjelman parantelua
+|       | 1    | dokumentaation päivittäminen
+| yht   | 53   |
