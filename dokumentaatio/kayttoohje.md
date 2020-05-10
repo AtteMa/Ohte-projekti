@@ -1,6 +1,6 @@
 # Käyttöohje
 
-Lataa viimeisimmän 
+Lataa viimeisimmän releasen tiedostot 
 
 ## Konfigurointi
 
