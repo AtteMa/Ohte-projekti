@@ -1,1 +1,4 @@
-pelaaja1 0 100 
+pelaaja1 0 100
+ 0 0
+asd 0 800
+google 0 200

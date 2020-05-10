@@ -141,7 +141,9 @@ public class AsteroidsUi extends Application {
         game.setOnAction((event) -> {
             text.setText(name.getText() + "\nPoints: 0");
             
-            if (playerService.createPlayer(name.getText(), Integer.toString(points.get()), 0)) {
+            if (name.getText().isEmpty()) {
+                startGameMessage.setText("Player name cannot be empty!");
+            } else if (playerService.createPlayer(name.getText(), Integer.toString(points.get()), 0)) {
                 stage.setScene(gameScene);
                 loop.start();
             } else {
