@@ -37,4 +37,4 @@ Pelissä ohjataan avaruusalusta jolla ammutaan ja väistellään asteroideja.
 Aluksen liikuttaminen tapahtuu nuolinäppäimillä:
 - VASEN ja OIKEA kääntävät alusta
 - YLÖS ja ALAS kiihdyttävät alusta eteen ja taakse
-Aluksella ammutaan VÄLILYÖNTI näppäimellä.
+- Aluksella ammutaan VÄLILYÖNTI näppäimellä.
