@@ -1,5 +1,16 @@
 # Käyttöohje
 
+Lataa viimeisimmän 
+
+## Konfigurointi
+
+Sovellus olettaa että käynnistyshakemistosta löytyy konfiguraatiotiedosto _config.properties_, joka määrittelee pelaajat tallentavan tiedoston nimen. Konfiguraatiotiedoston sisältö on:
+
+```
+playerFile=playerFile.txt
+```
+Sovellus olettaa siis käynnistyshakemistosta löytyvän myös tiedosto _playerFile.txt_.
+
 ## Ohjelman käynnistäminen
 
 Ohjelma käynnistetään suorittamalla komento

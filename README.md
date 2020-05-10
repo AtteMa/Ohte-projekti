@@ -45,7 +45,7 @@ mvn package
 ohjelma suoritetaan komennolla
 
 ```
-java -jar target/Asteroids-1.0-SNAPSHOT.jar
+java -jar asteroids.jar
 ```
 
 ### JavaDoc
